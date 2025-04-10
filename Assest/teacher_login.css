@@ -1,0 +1,29 @@
+body {
+    background-color: lightskyblue;
+}
+
+.header {
+    color: white;
+    margin-top: 100px;
+    border-bottom: 1px white solid;
+}
+
+.container .login_form {
+    margin-top: 250px;
+}
+
+.help {
+    color: lightskyblue !important;
+}
+
+fieldset {
+    display: table-column;
+}
+
+
+.form-horizontal {
+    border: 1px #485a72;
+    border-radius: 15px;
+    padding: 17px;
+    background: #f2f2f2;
+}

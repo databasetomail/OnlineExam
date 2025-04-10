@@ -1,0 +1,12 @@
+body {
+    background-color: lightskyblue;
+}
+
+.header {
+    margin-top: 50px;
+    color: white;
+}
+
+.login {
+    margin-top: 300px;
+}
