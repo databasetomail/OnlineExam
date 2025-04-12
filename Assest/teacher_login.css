@@ -1,5 +1,9 @@
 body {
-    background-color: lightskyblue;
+    background: url(Background/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .header {
@@ -9,21 +13,21 @@ body {
 }
 
 .container .login_form {
-    margin-top: 250px;
-}
-
-.help {
-    color: lightskyblue !important;
+    margin-top: 90px;
 }
 
 fieldset {
     display: table-column;
 }
 
-
 .form-horizontal {
     border: 1px #485a72;
     border-radius: 15px;
     padding: 17px;
     background: #f2f2f2;
+}
+
+#bangla_font {
+    font-family: 'SutonnyMJ';
+    font-size: 12pt;
 }

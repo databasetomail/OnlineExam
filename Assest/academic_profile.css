@@ -1,7 +1,9 @@
 body {
-    background-color: lightskyblue;
-    margin: 0px;
-    padding: 0px;
+    background: url(Background/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 h1{
@@ -33,7 +35,7 @@ ul.dropdown li{
     font-weight: bold; 
     float: left; 
     border-right: 1px solid white;
-    width: 162px; 
+    width: 142.3px; 
     position: relative;
     background: #ecf0f1;
 }
@@ -146,4 +148,13 @@ legend.scheduler-border {
 
 .browse_icon {
     margin-top: 147px;
+}
+
+.gender{
+    margin-left: 15px;
+}
+
+#bangla_font {
+    font-family: 'SutonnyMJ';
+    font-size: 12pt;
 }

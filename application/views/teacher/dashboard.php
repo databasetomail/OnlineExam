@@ -14,9 +14,8 @@ and open the template in the editor.
     </head>
 
     <body>
-
         <div class="Banner_Section">
-            <div class="container-fluid">
+            <div class="container-fluid" id="banner">
                 <img src="<?php echo base_url(); ?>Assest/Background/Banner.jpg" alt="Banner goes here" class="img-responsive"/>
             </div>
         </div>
@@ -25,30 +24,31 @@ and open the template in the editor.
             <div class="container">
                 <nav>
                     <ul class="dropdown">
-                        <li><a href="<?php echo base_url(); ?>teacher"> হোম </a> </li>
-                        <li><a href="<?php echo base_url(); ?>#"> শিক্ষক প্রোফাইল </a> </li>
-                        <li><a href="<?php echo base_url(); ?>question/make_set"> সেট ও প্রশ্নপত্র তৈরি </a> </li>
-                        <li><a href="<?php echo base_url(); ?>#"> ফলাফল </a> </li>
-                        <li><a href="<?php echo base_url(); ?>#"> নোটিশ বোর্ড </a> </li>
-                        <li><a href="<?php echo base_url(); ?>#"> সাহায্য </a> </li>
-                        <li><a href="<?php echo base_url(); ?>teacher/logout"> লগআউট(<?php echo $examiner_id= $this->session->userdata('examiner_id'); ?>)</a></li>
+                        <li><a style="color: black;" href="<?php echo base_url(); ?>teacher"> হোম </a> </li>
+                        <li><a style="color: black;" href="<?php echo base_url(); ?>teacher/teacher_profile"> শিক্ষক প্রোফাইল </a> </li>
+                        <li><a style="color: black;" href="<?php echo base_url(); ?>question/make_set"> সেট ও প্রশ্নপত্র  </a> </li>
+                        <li><a style="color: black;" href="<?php echo base_url(); ?>teacher/result"> ফলাফল </a> </li>
+                        <li><a style="color: black;" href="<?php echo base_url(); ?>teacher/notice_board"> নোটিশ বোর্ড </a> </li>
+                        <li><a style="color: black;" href="<?php echo base_url(); ?>teacher/dictionary"> শব্দ ভান্ডার </a> </li>
+                        <li><a style="color: black;" href="<?php echo base_url(); ?>teacher/teacher_settings"> সেটিংস </a> </li>
+                        <li><a style="color: black;" href="<?php echo base_url(); ?>teacher/logout"> লগআউট </a></li>
                     </ul>
                 </nav>
             </div>
         </div>
 
-        <div class="Menu_section">
+        <div class="Welcome_section">
             <div class="container">
-                <h3> Welcome !   <?php
-                    $message = $this->session->userdata('examiner_name');
+                <?php
+                $message = $this->session->userdata('examiner_name');
 
-                    if (isset($message)) {
-                        ?>
-                        <label style="color: yellow;"><?php echo $message ?> </label>                                        
-                        <?php
-                    }
-                    ?>   
-                </h3>
+                if (isset($message)) {
+                    ?>
+                    <label style="color: yellow;"><h3> স্বাগতম!!  <?php echo $message ?> </h3> </label>                                        
+                    <?php
+                    $this->session->unset_userdata('examiner_name');
+                }
+                ?>   
             </div>
         </div>
 

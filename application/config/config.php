@@ -521,3 +521,16 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+/*$config['protocol'] = 'sendmail';
+$config['mailpath'] = '/usr/sbin/sendmail';
+$config['charset'] = 'iso-8859-1';
+$config['wordwrap'] = TRUE;
+*/
+$config['protocol']  = 'smtp';
+$config['smtp_host'] = 'ssl://smtp.googlemail.com';
+$config['smtp_user'] = 'databasetomail@gmail.com';
+$config['smtp_pass'] = 'food@hstu';
+$config['smtp_port'] = '465';
+/* End of file config.php */
+/* Location: ./application/config/config.php */

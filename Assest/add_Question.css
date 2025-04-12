@@ -1,7 +1,9 @@
 body {
-    background-color: lightskyblue;
-    margin: 0px;
-    padding: 0px;
+    background: url(Background/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 h1{
@@ -30,10 +32,10 @@ ul.dropdown{
 }
 
 ul.dropdown li{ 
-    font-weight: bolder; 
+    font-weight: bold; 
     float: left; 
     border-right: 1px solid white;
-    width: 162px; 
+    width: 142.3px; 
     position: relative;
     background: #ecf0f1;
 }
@@ -50,7 +52,7 @@ ul.dropdown li a {
     z-index: 2000; 
     text-align: center;
     text-decoration: none;
-     font-weight: bolder; 
+    font-weight: bolder;
 }
 
 ul.dropdown li a:hover,
@@ -110,6 +112,7 @@ ul.dropdown ul li a:hover{
     border-top: 5px solid #fff;
     border-right: 5px solid transparent;
 }
+
 .dropdown li:nth-child(3) {
     display: block; 
     background: #3498db !important;
@@ -126,4 +129,8 @@ ul.dropdown ul li a:hover{
 
 #myModal{
                 z-index: 9999;
+}
+#bangla_font {
+    font-family: 'SutonnyMJ';
+    font-size: 12pt;
 }

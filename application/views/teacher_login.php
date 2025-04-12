@@ -16,21 +16,23 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="col-lg-12 text-center header">
-                <h1> <strong> পরীক্ষক হিসেবে প্রবেশ করুনঃ </strong> </h1>
-            </div>           
+                <h1> <strong> পরীক্ষক হিসেবে প্রবেশ করুনঃ </strong> </h1>                     
+            </div>
+        </div>
 
+        <div class="container">
             <div class="login_form">
-                <?php
-                $succ_message = $this->session->userdata('message');
-
-                if (isset($succ_message)) {
-                    ?>
-                    <div style="color: yellow; text-align: center"><?php echo $succ_message ?></div>
-                    <?php
-                }
-                $this->session->unset_userdata('message');
-                ?>
                 <div class="col-lg-6 col-lg-offset-3">
+                    <?php
+                    $succ_message = $this->session->userdata('teacher_reg_succ_msg');
+
+                    if (isset($succ_message)) {
+                        ?>
+                        <label style="color: green;" class="text-center"><?php echo $succ_message ?></label>
+                        <?php
+                    }
+                    $this->session->unset_userdata('teacher_reg_succ_msg');
+                    ?>
                     <form action="<?php echo base_url(); ?>main/teacher_login_check" method="POST" class="form-horizontal" role="form">
                         <fieldset>
                             <legend class="text-center"> ফর্মটি পুরণ করুন:</legend>
@@ -38,21 +40,21 @@ and open the template in the editor.
                             <div class="form-group">
                                 <label for="examiner_id" class="col-md-3 control-label">পরীক্ষক আইডি</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="examiner_id" name="examiner_id">
+                                    <input type="text" class="form-control" id="examiner_id" name="examiner_id" required="">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="examiner_mobile" class="col-md-3 control-label">মোবাইল নং</label>
+                                <label for="mobile" class="col-md-3 control-label">মোবাইল নং</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="examiner_mobile" name="examiner_mobile">
+                                    <input type="text" class="form-control" id="mobile" name="mobile" required="">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">পাসওয়ার্ড</label>
                                 <div class="col-md-9">
-                                    <input type="password" class="form-control" id="password" name="password" >
+                                    <input type="password" class="form-control" id="password" name="password" required="">
                                 </div>
                             </div>
 
@@ -68,10 +70,11 @@ and open the template in the editor.
                             ?>                                                        
 
                             <div class="form-group">
-                                <label for="submit" class="col-md-3 control-label"></label>
-                                <div class="col-md-5 help-block">
-                                    <a href="<?php echo base_url(); ?>#" class="help" id="submit"> সাহায্য নিন </a> /
-                                    <a href="<?php echo base_url(); ?>main/teacher_registration" class="help"> রেজিষ্ট্রেশন করুন </a>
+                                <div class="col-md-8 help-block">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="<?php echo base_url(); ?>main"> হোমপেজ </a> &nbsp;&nbsp;/&nbsp;&nbsp;
+                                    <a href="<?php echo base_url(); ?>main/teacher_password_reset"> সাহায্য নিন </a>&nbsp;&nbsp; /&nbsp;&nbsp;                                                                  
+                                    <a href="<?php echo base_url(); ?>main/teacher_registration"> রেজিষ্ট্রেশন করুন </a>
                                 </div>
                                 <div class="col-md-3 col-md-offset-1">
                                     <input type="submit" class="form-control btn-primary" name="submit" value="প্রবেশ করুন" id="submit">

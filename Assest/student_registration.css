@@ -1,13 +1,19 @@
 body {
-    background-color: lightskyblue;
-    margin: 0px;
-    padding: 0px;
+    background: url(Background/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .header {
     color: white;
     margin-top: 20px;
     border-bottom: 1px white solid;
+}
+
+.header p {
+        font-size: 40px;
 }
 
 .personal_info_section {
@@ -40,3 +46,54 @@ legend.scheduler-border {
     margin-bottom: 150px;
     padding: 10px 25px 10px 25px;
 }
+
+.gender{
+    margin-left: 15px;
+}
+
+#bangla_font {
+    font-family: 'SutonnyMJ';
+    font-size: 12pt;
+}
+
+/* For Responsive -----------------------------------------------------------------------------------------------------------------------START */
+@media only screen and (min-device-width : 320px) and (max-device-width : 360px) {
+    
+    .header p {
+        font-size: 22px;
+    }
+    
+    .personal_info_section {
+        margin-top: 20px;
+    }
+    
+    textarea {
+        width: 210px;
+    }
+
+    .browse_icon {
+        margin-top: 10px;
+    }
+
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+     .header p {
+        font-size: 22px;
+    }
+    
+    .personal_info_section {
+        margin-top: 20px;
+    }
+    
+    textarea {
+        width: 615px;
+    }
+
+    .browse_icon {
+        margin-top: 10px;
+    }
+    
+}
+/* For Responsive ----------------------------------------------------------------------------------------------------------------------- END */

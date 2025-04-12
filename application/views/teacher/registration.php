@@ -10,82 +10,135 @@ and open the template in the editor.
         <title> Online Examination System </title>
         <link rel="stylesheet" href="<?php echo base_url(); ?>Assest/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <script src="<?php echo base_url(); ?>Assest/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="<?php echo base_url(); ?>Assest/teacher_login.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>Assest/teacher_registration.css">
+        <script class="jsbin" src="<?php echo base_url(); ?>Assest/bootstrap-3.3.7-dist/js/jquery-ui.min.js"></script>
+        <script class="jsbin" src="<?php echo base_url(); ?>Assest/bootstrap-3.3.7-dist/js/jquery.min.js"></script>
+        <script class="jsbin" src="<?php echo base_url(); ?>Assest/bootstrap-3.3.7-dist/js/image_display_js.js"></script>
     </head>
 
     <body>
-        <div class="container" style="margin-top:  -80px; margin-bottom: 70px;">
-            <div class="col-lg-12 text-center header">
-                <h1> <strong> পরীক্ষক হিসেবে রেজিষ্ট্রেশন করুনঃ </strong> </h1>
-            </div>
+        <div class="Body_Section">
+            <div class="container">
+                <div class="col-lg-12 text-center header">
+                    <p> <strong> পরীক্ষক নিবন্ধন ফর্ম </strong> </p>
+                </div>
+                <?php
+//                pic upload error show
+                if (isset($error)) {
+                    echo $error;
+                }
+                ?>
+                <div class="personal_info_section">
+                    <div class="col-lg-12">
+                        <form action="<?php echo base_url() ?>main/teacher_registration_confirm" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border"> পরীক্ষকের  ব্যক্তিগত তথ্যাদিঃ </legend>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="name" class="col-lg-3 control-label"> পরীক্ষকের নাম * </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="name" name="examiner_name" required="">
+                                        </div>
+                                    </div>
 
-            <div class="login_form">
-                <div class="col-lg-6 col-lg-offset-3">
-                    <form action="<?php echo base_url(); ?>Main/teacher_registration_confirm" method="POST" class="form-horizontal" role="form">
-                        <fieldset>
-                            <legend class="text-center"> ফর্মটি পুরণ করুন:</legend>
+                                    <div class="form-group">
+                                        <label for="f_name" class="col-lg-3 control-label"> পিতার নাম </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="f_name" name="f_name">
+                                        </div>
+                                    </div>
 
-                            <div class="form-group">
-                                <label for="examiner_id" class="col-md-3 control-label">পরীক্ষক আইডি</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" id="examiner_id" name="examiner_id">
+                                    <div class="form-group">
+                                        <label for="m_name" class="col-lg-3 control-label"> মাতার নাম </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="m_name" name="m_name">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dob" class="col-lg-3 control-label"> জন্ম তারিখ </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="dob" name="dob" placeholder="বছর-মাস-দিন">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gender" class="col-lg-3 control-label"> লিঙ্গ </label>
+                                        <div class="col-lg-9">
+                                            <span class="">
+                                                <input type="radio" name="gender" value="Male" checked=""> পুরুষ 
+                                            </span>
+                                            <span class="gender">
+                                                <input type="radio" name="gender" value="Female"> মহিলা
+                                            </span>
+                                            <span class="gender">
+                                                <input type="radio" name="gender" value="Other"> অন্যান্য 
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pre_add" class="col-lg-3 control-label"> বর্তমান ঠিকানা </label>
+                                        <div class="col-lg-9">
+                                            <textarea rows="3" cols="54" name="pre_add"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class="col-lg-3 control-label"> ই-মেইল * </label>
+                                        <div class="col-lg-9">
+                                            <input type="email" class="form-control" id="email" name="email" required="">
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="col-lg-4 col-lg-offset-3">
+                                            <img id="photo" src="<?php echo base_url(); ?>Assest/Background/Not_available_icon.jpg" height="180px" width="160px"/>
+                                        </div>
+                                        <div class="col-lg-5 browse_icon">
+                                            <input type='file' onchange="readURL(this);" name="photo"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="religion" class="col-lg-3 control-label"> ধর্ম  </label>
+                                        <div class="col-lg-9">
+                                            <select name="religion"> 
+                                                <option> ----- সিলেক্ট করুন ---- </option>
+                                                <option value="Islam"> ইসলাম </option>
+                                                <option value="Hindu"> হিন্দু </option>
+                                                <option value="Christian"> খ্রিষ্টান </option>
+                                                <option value="Bhuddist"> বৌদ্ধ </option>
+                                                <option value="Others"> অন্যান্য </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="per_add" class="col-lg-3 control-label"> স্থায়ী ঠিকানা. </label>
+                                        <div class="col-lg-9">
+                                            <textarea rows="3" cols="54" name="per_add"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="mobile" class="col-lg-3 control-label"> মোবাইল *  </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="mobile" name="mobile" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <br/>
+                            <div class="col-lg-2 col-lg-offset-5 text-center submit">
+                                <input type="submit" name="submit" class="btn-primary" size="50px" value="সংরক্ষন করুন"/>
                             </div>
-
-                            <div class="form-group">
-                                <label for="examiner_name" class="col-md-3 control-label">পরীক্ষকের নাম</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" id="examiner_name" name="examiner_name">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="examiner_mobile" class="col-md-3 control-label">মোবাইল নং</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" id="examiner_mobile" name="examiner_mobile">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password" class="col-md-3 control-label">পাসওয়ার্ড</label>
-                                <div class="col-md-9">
-                                    <input type="password" class="form-control" id="password" name="password">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="re-password" class="col-md-3 control-label">পুণঃ পাসওয়ার্ড</label>
-                                <div class="col-md-9">
-                                    <input type="password" class="form-control" id="re-password" >
-                                </div>
-                            </div>                                                         
-
-                            <div class="form-group">
-                                <label for="submit" class="col-md-3 control-label"></label>
-                                <div class="col-md-5 help-block">
-                                    <?php
-                                    $message = $this->session->userdata('message');
-
-                                    if (isset($message)) {
-                                        ?>
-                                        <div style="color: green;"><?php echo $message ?> <a href="<?php echo base_url() ?>main/teacher_login">Login Here </a> </div>                                        
-                                        <?php
-                                    }
-                                    $this->session->unset_userdata('message');
-                                    ?>                                        
-                                </div>
-                                
-                                <div class="col-md-3 col-md-offset-1">
-                                    <input type="submit" class="form-control btn-primary" name="submit" value="সংরক্ষণ করুন" id="submit">
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <script src="<?php echo base_url(); ?>Assest/bootstrap-3.3.7-dist/js/jquery-3.1.1.min.js"></script>
-
     </body>
 </html>
